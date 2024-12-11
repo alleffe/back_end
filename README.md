@@ -1,123 +1,40 @@
-exame 
+# Meu Projeto com Node.js, TypeORM e TypeScript
 
+Este é um projeto desenvolvido com **Node.js**, **TypeScript**, **TypeORM**, e **Express.js**, com uma estrutura organizada para facilitar o desenvolvimento de APIs modernas e escaláveis.
 
-Uma breve descrição do seu projeto. Por exemplo:
-"Este projeto é uma API desenvolvida em Node.js com TypeScript e TypeORM para gerenciar missões e usuários. O sistema utiliza Express.js para criar endpoints RESTful."
+---
 
-Instalação
+## 🚀 Funcionalidades
 
-Siga as etapas abaixo para configurar o projeto localmente:
+- Configuração de banco de dados com TypeORM.
+- Modelos e controladores para entidades como `User` e `Mission`.
+- Rotas organizadas para recursos específicos.
+- Pronto para autenticação e validação de dados.
 
-Clone o repositório:
+---
 
-git clone https://github.com/seu-usuario/nome-repositorio.git
+## 🛠️ Tecnologias Utilizadas
 
-Navegue até o diretório do projeto:
+- **Node.js**: Ambiente de execução para JavaScript no servidor.
+- **TypeScript**: Superset do JavaScript com tipagem estática.
+- **TypeORM**: ORM para integração com banco de dados.
+- **Express.js**: Framework para criar APIs robustas e rápidas.
 
-cd nome-repositorio
+---
 
-Instale as dependências:
+## 📂 Estrutura do Projeto
 
-npm install
-
-Configure as variáveis de ambiente:
-
-Crie um arquivo .env na raiz do projeto com as seguintes informações:
-
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=seu_usuario
-DB_PASSWORD=sua_senha
-DB_NAME=nome_do_banco
-JWT_SECRET=sua_chave_secreta
-
-Como Usar
-
-Execute as migrações para criar o banco de dados:
-
-npm run migration:run
-
-Inicie o servidor:
-
-npm start
-
-Acesse a API no navegador ou via ferramenta como Postman:
-
-http://localhost:3000
-
-Endpoints Principais
-
-Usuários
-
-GET /users: Retorna todos os usuários.
-
-POST /users: Cria um novo usuário.
-
-Parâmetros (JSON):
-
-{
-  "name": "Nome do Usuário",
-  "email": "email@example.com",
-  "password": "senha123"
-}
-
-Missões
-
-GET /missions: Retorna todas as missões.
-
-POST /missions: Cria uma nova missão.
-
-Parâmetros (JSON):
-
-{
-  "title": "Titulo da Missão",
-  "description": "Descricao da missão",
-  "userId": 1
-}
-
-Estrutura do Projeto
-
-src/config: Configurações do banco de dados.
-
-src/controllers: Controladores com a lógica de negócio.
-
-src/models: Modelos do banco de dados usando TypeORM.
-
-src/routes: Rotas da API.
-
-Tecnologias Utilizadas
-
-Node.js
-
-TypeScript
-
-TypeORM
-
-Express.js
-
-MySQL
-
-Contribuição
-
-Contribuições são bem-vindas! Para contribuir:
-
-Faça um fork do repositório.
-
-Crie uma branch para suas alterações:
-
-git checkout -b minha-feature
-
-Faça o commit das alterações:
-
-git commit -m "Adiciona nova funcionalidade"
-
-Envie para o repositório remoto:
-
-git push origin minha-feature
-
-Abra um Pull Request.
-
-Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
-
+```plaintext
+src/
+├── config/
+│   └── database.ts          # Configuração do banco de dados
+├── controllers/
+│   ├── missionController.ts # Controlador para a entidade 'Mission'
+│   └── userController.ts    # Controlador para a entidade 'User'
+├── models/
+│   ├── missionModel.ts      # Modelo da entidade 'Mission'
+│   └── userModel.ts         # Modelo da entidade 'User'
+├── routes/
+│   ├── missionRoutes.ts     # Rotas para a entidade 'Mission'
+│   └── userRoutes.ts        # Rotas para a entidade 'User'
+├── index.js                 # Arquivo principal do servidor
