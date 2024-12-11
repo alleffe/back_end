@@ -5,6 +5,15 @@ import {
   deleteMission,
 } from "../controllers/missionController";
 import { authenticateToken } from "../middlewares/authMiddleware";
+import { Router } from "express";
+import { getUsers } from "../controllers/userController";
+
+const userRoutes = Router();
+
+userRoutes.get("/users", getUsers);
+
+export default userRoutes;
+
 
 const router = express.Router();
 

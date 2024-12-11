@@ -1,40 +1,24 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { IsEmail, Length } from "class-validator";
+import { Mission } from "./missionModel";
 
-@Entity('missions')
-export class Mission {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
-  @Column()
-  missionName: string;
-
-  @Column()
-  targetPlanet: string;
-
-  @Column('float')
-  durationYears: number;
-
-  @Column('int')
-  crewCount: number;
-
-  @Column('simple-array')
-  technologies: string[];
-}
-
-// src/models/userModel.ts
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-
-@Entity('users')
+@Entity()
 export class User {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column()
+  @Length(3, 50)
   name: string;
 
   @Column({ unique: true })
+  @IsEmail()
   email: string;
 
   @Column()
+  @Length(6, 20)
   password: string;
+
+  @OneToMany(() => Mission, (mission) => mission.user)
+  missions: Mission[];
 }

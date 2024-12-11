@@ -1,16 +1,22 @@
-import { DataSource } from 'typeorm';
-import dotenv from 'dotenv';
+import { DataSource } from "typeorm";
+import * as dotenv from "dotenv";
+
 dotenv.config();
 
-export const AppDataSource = new DataSource({
-  type: 'postgres',
+const AppDataSource = new DataSource({
+  type: "mysql",
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
   username: process.env.DB_USER,
-  password: process.env.DB_PASS,
+  password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  synchronize: true,
-  logging: false,
-  entities: ['./src/models/*.ts'],
-  migrations: ['./src/migrations/*.ts'],
+  entities: [__dirname + "/../models/*.ts"],
+  synchronize: false,
+  logging: true,
 });
+
+AppDataSource.initialize()
+  .then(() => console.log("Database connected!"))
+  .catch((err) => console.error("Database connection failed:", err));
+
+export default AppDataSource;
